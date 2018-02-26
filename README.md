@@ -7,4 +7,4 @@ The Java file contain the code for the Android app :
 
 -UDP.java for the sending.
 
--UDP_Listening for receiving.
+-UDP_Listening.java for receiving.
