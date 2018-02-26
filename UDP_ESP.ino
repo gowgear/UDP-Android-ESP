@@ -65,7 +65,7 @@ void setup()
               
                             Serial.printf("UDP packet contents: %s\n", testBuffer);
                         
-           //////////////////////// send back a reply, to the IP address and port we got the packet from////////////////////////
+ ///////////////////////////// send back a reply, to the IP address and port we got the packet from////////////////////////
            
                             Udp.beginPacket(Udp.remoteIP(), Udp.remotePort()); 
                             Udp.write(ReplyBuffer);
@@ -84,5 +84,3 @@ void loop()
     
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
