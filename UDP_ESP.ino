@@ -23,7 +23,7 @@ String received;
 
 void setup()
 {
-  ////////////////////////////////////////////////////////////////////////Wifi Configuration//////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////Wifi Configuration//////////////////////////////////////////////////////////////
   
     WiFi.softAPdisconnect(true);
     WiFi.disconnect(true);
@@ -33,17 +33,17 @@ void setup()
     WiFi.softAP("XXX");                     //Name of the wifi you want to create
     WiFi.begin();
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-  ///////////////////////////////////////////////////////////////////////UDP////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////UDP////////////////////////////////////////////////////////////////////////////
 
 
-    Udp.begin(UDPPort);                                                                                   //////listening to the port UDPPort///////
+    Udp.begin(UDPPort);                                                               //////listening to the port UDPPort///////
     Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.softAPIP().toString().c_str(), TestPort);
 
 
-           int packetSize = Udp.parsePacket();                                                            ////verify if a packet have been received//
+           int packetSize = Udp.parsePacket();                                        ////verify if a packet have been received//
  
            if (packetSize)
            
@@ -51,7 +51,7 @@ void setup()
               // receive incoming UDP packets
               Serial.printf("Received %d bytes from %s, port %d\n", packetSize, Udp.remoteIP().toString().c_str(), Udp.remotePort());
           
-              int len = Udp.read(packetBuffer, 255);                                                       //////read the buffer////////////////////
+              int len = Udp.read(packetBuffer, 255);                                     //////read the buffer////////////////////
           
               
               
@@ -59,13 +59,13 @@ void setup()
               {
                packetBuffer[len] = 0;
               }
-              received=String(packetBuffer);                                                                /////convert it to a string////////
+              received=String(packetBuffer);                                                 /////convert it to a string////////
 
 
               
                             Serial.printf("UDP packet contents: %s\n", testBuffer);
                         
-           ////////////////////////////////////// send back a reply, to the IP address and port we got the packet from//////////////////////////////
+           //////////////////////// send back a reply, to the IP address and port we got the packet from////////////////////////
            
                             Udp.beginPacket(Udp.remoteIP(), Udp.remotePort()); 
                             Udp.write(ReplyBuffer);
